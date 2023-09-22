@@ -3,12 +3,14 @@ import type { LayoutServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
 
 export const load = (async ( {cookies} ) => {
-    const name = cookies.get('name');
+    const studentName = cookies.get('name');
+    const schoolName = cookies.get('school');
     const email = cookies.get('email');
-    if(!name || !email) {
+    if(!studentName || !email) {
         throw redirect(301, '/login');
     }
     return {
-        name,
+        studentName,
+        schoolName
     };
-}) satisfies LayoutServerLoad;
+});

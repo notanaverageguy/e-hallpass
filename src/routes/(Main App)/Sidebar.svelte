@@ -8,6 +8,7 @@
 
     let toggled: boolean = false;    
     export let studentName: string;
+    export let schoolName: string;
     
 </script>
 
@@ -44,11 +45,11 @@
                 <div class="px-[16px] py-[8px] border-b border-white">
                     <div class="flex items-center justify-center">
                         <div class="bg-white rounded-lg p-[3px]">
-                            <img class="rounded-lg" width=39 src="https://pass.securly.com/img/avatars/user-avatar.jpeg" alt="user-avatar">
+                            <img class="rounded-lg" width=39 src="https://cdn-icons-png.flaticon.com/512/2602/2602414.png" alt="school">
                         </div>
                         <div class="flex-1 ps-2 leading-[12px]">
                             <p class="m-0 text-[13px] ">School</p>
-                            <b class="text-[14px] text-wrap">SCHOOL NAME</b>
+                            <b class="text-[14px] text-wrap">{ schoolName }</b>
                         </div>
                     </div>
                 </div>

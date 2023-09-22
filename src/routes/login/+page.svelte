@@ -78,6 +78,12 @@
                                     </span>
                                     <input class="form-control mb-0 w-[100%] border-y border-r outline-0 border-black focus:border-[#005dba] py-[11.2px] px-[16px]" placeholder="Name" autocomplete="name" type="text" name="name" >
                                 </div>
+                                <div class="flex mt-[16px]">
+                                    <span class="border-y border-l flex items-center py-[11.2px] px-[16px] border-black">
+                                        <img width=20 height=16 src="https://cdn-icons-png.flaticon.com/512/3074/3074058.png" class="" alt="">
+                                    </span>
+                                    <input class="form-control mb-0 w-[100%] border-y border-r outline-0 border-black focus:border-[#005dba] py-[11.2px] px-[16px]" placeholder="School" type="text" name="school" >
+                                </div>
 
                                 <!-- Forgor Button-->
                                 <div class="flex justify-end h-[46px]" style="-webkit-tap-highlight-color: transparent;">

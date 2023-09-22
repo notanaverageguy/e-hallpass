@@ -4,7 +4,8 @@
 
     export let data: any;
 
-    let name = (data.name);
+    let studentName = (data.studentName);
+    let schoolName = data.schoolName;
 
 </script>
 
@@ -15,7 +16,7 @@
 <main>
     <div class="min-w-screen max-w-screen">
 
-            <Sidebar studentName={ name } />
+            <Sidebar studentName={ studentName } schoolName={ schoolName }/>
         <div class="h-screen flex flex-col">
             <Navbar />
 

@@ -9,4 +9,4 @@ export const load = (async ( { cookies }) => {
         name,
         email
     };
-}) satisfies PageServerLoad;
+});
