@@ -1,5 +1,4 @@
 import { redirect, fail } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
 
 export const load = ( ( ) => {
     
