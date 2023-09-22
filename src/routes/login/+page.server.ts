@@ -22,7 +22,7 @@ export const actions = {
             return fail(400, { name, full_name: false });
         }
 
-        cookies.set('name', `${name}`, { path: '/', secure: false});
+        cookies.set('name', `${name.toUpperCase()}`, { path: '/', secure: false});
         cookies.set('email', `${email}`, { path: '/', secure: false});
 
         throw redirect(303, '/passes/activepass');

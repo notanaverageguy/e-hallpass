@@ -35,7 +35,7 @@
                             <img class="rounded-lg" width=39 src="https://pass.securly.com/img/avatars/user-avatar.jpeg" alt="user-avatar">
                         </div>
                         <div class="flex-1 ps-2 leading-[12px]">
-                            <b class="text-[14px] text-wrap">{ studentName.toLocaleUpperCase() }</b>
+                            <b class="text-[14px] text-wrap">{ studentName }</b>
                             <p class="m-0 text-[13px] ">student</p>
                         </div>
                     </div>

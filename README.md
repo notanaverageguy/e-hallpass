@@ -13,12 +13,12 @@ npm install
 npm run dev
 
 # To open the network 
-npm run dev --host
+npm run dev -- --host
 ```
 
 ## Changing ports
 
-### `-p <port>`
+### `--p <port>`
 
 Speicifies the port you want to use. Use port 80 to not have to specify the port when connecting via the web. Make sure that it doesnt interfere with other running applications that are using the same port
 
