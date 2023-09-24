@@ -106,10 +106,10 @@
                             </a>
                         </li>
                         <li class="py-[2px] flex items-center select-none">
-                            <a href="/passes/activepass" class="py-[10px] px-[16px] text-[15px] font-normal flex hover:bg-gray-200 w-[100%] min-h-[37.5px] max-h-[37.5px] rounded-lg transition duration-300 ease-in">
+                            <div class="py-[10px] px-[16px] text-[15px] font-normal flex hover:bg-gray-200 w-[100%] min-h-[37.5px] max-h-[37.5px] rounded-lg transition duration-300 ease-in">
                                 <img src="{activeImg}" alt="wtv" width=20 class="mr-[10px]">
                                 <p class="relative top-[-3px]">Active Pass</p>
-                            </a>
+                            </div>
                         </li>
                         <li class="py-[2px] flex items-center select-none">
                             <a href="/" class="py-[10px] px-[16px] text-[15px] font-normal flex hover:bg-gray-200 w-[100%] min-h-[37.5px] max-h-[37.5px] rounded-lg transition duration-300 ease-in">

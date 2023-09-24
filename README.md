@@ -56,8 +56,6 @@ npm modules used:
 
 ## TO-DO
 * Sidebar
-    - Different background color for selected page
-    - Proper redirects on buttons
     - Training drop down
 * Navbar
     - Help menu button

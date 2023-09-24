@@ -10,3 +10,11 @@ export const load = (async ( { cookies }) => {
         email
     };
 });
+
+export const actions = {
+	delete: ({ request, cookies }) => {
+		cookies.delete('name', { path: '/' });
+        cookies.delete('school', { path: '/' });
+        cookies.delete('email', { path: '/' });
+	},
+};
