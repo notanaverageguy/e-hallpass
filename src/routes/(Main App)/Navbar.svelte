@@ -8,7 +8,7 @@
     import { onMount } from 'svelte';
     onMount(() => {
         const url = window.location.href;
-        const route = url.replace(/(?:http:\/\/)?([0-9]\.?)+\//, "");
+        const route = url.replace(/(?:http:\/\/(?:.)+)?(?:[0-9]\.?)+\//, "");
         switch(route) {
             case "id-card":
                 header = "Digital ID";

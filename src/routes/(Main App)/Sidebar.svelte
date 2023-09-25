@@ -6,13 +6,23 @@
     import updatesImg from '$lib/Sidebar Images/Updates.png';
     import trainingImg from '$lib/Sidebar Images/Training.png';
 
-    let toggled: boolean = false;    
+    import { browser } from '$app/environment';
+    
+    let toggled: boolean;    
     export let studentName: string;
     export let schoolName: string;
+
+    if(browser) {
+        toggled = window.innerWidth < 640 ? false : true;
+
+        window.onresize = () => {
+            toggled = window.innerWidth < 640 ? false : true;
+        }
+    }
     
 </script>
 
-<div class="bg-white w-[255px] min-w-[255px] min-h-screen absolute {toggled ? "translate-x-0" : "translate-x-[-240px]"} transition duration-100 ease-in-out z-10">
+<div class="bg-white w-[255px] min-w-[255px] min-h-screen absolute {toggled ? "translate-x-0" : "translate-x-[-240px]"} transition duration-200 ease-in-out z-10">
     <div class=" {toggled ? "border-r border-[#92a7ba]" : "border-r-2 border-[#0073e6]"} h-screen ">
         <!--Logo-->
         <div class="py-[16px] flex items-center justify-center">
