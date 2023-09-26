@@ -85,7 +85,7 @@
                 <div class="my-2">
                     <form method="POST" action="?/submit">
 
-                        <span class="opacity-50 text-[21px] mb-2 inline-block font-normal">Departing From:</span>
+                        <span class="big-text">Departing From:</span>
     
                         <div class="p-[11.2px] border border-[#003b75]">
                             <div class="px-[2px] flex h-[24px]">
@@ -130,7 +130,7 @@
                         
                         <hr class="my-[16px] border-t border-gray-300">
     
-                        <span class="opacity-50 text-[21px] mb-2 inline-block font-normal">Destination:</span>
+                        <span class="big-text">Destination:</span>
     
                         <div class="p-[11.2px] border border-[#003b75]">
                             <div class="px-[2px] flex h-[24px]">

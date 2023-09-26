@@ -7,7 +7,9 @@
         @apply flex justify-end relative z-0
     }
 
-
+    .big-text {
+        @apply opacity-50 text-[21px] mb-2 inline-block font-normal
+    }
     .favorite-teacher-container {
         @apply flex py-[10px] overflow-x-auto overflow-y-clip snap-x
     }
