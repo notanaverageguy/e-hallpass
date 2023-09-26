@@ -24,9 +24,7 @@
 		for (const test in testers) {
 			if (testers.hasOwnProperty(test)) {
                 const regex = new RegExp(test, 'g' )
-                if(regex.exec(route) !== null) {header = testers[test]; console.log('match')} else {
-                    console.log(regex, route, regex.exec(route))
-                }
+                if(regex.exec(route) !== null) {header = testers[test]; console.log('match')}
 			}
 		}
 
