@@ -24,7 +24,7 @@
 
 	function validateDestination(dest: string): boolean {
 		for (const location of locations) {
-			if (location.name == dest) return true;
+			if (`${location.name}${location.email ? `, ${location.email}` : ''}` == dest) return true;
 		}
 		return false;
 	}
@@ -94,7 +94,7 @@
 							<div class="px-[2px] flex h-[24px]">
 								<input
 									name="departInput"
-									class="w-[339px] outline-0"
+									class="w-[100%] outline-0"
 									placeholder="Teacher/location"
 									bind:value={departingSort}
 									on:focus={departingFocus}
@@ -115,7 +115,7 @@
 											<button
 												class="w-[100%] text-left"
 												on:click|preventDefault={() => {
-													departingSort = `${location.name}`;
+													departingSort = `${location.name}${location.email ? `, ${location.email}` : ''}`;
 												}}
 											>
 												<p>{location.name}{location.email ? `, ${location.email}` : ''}</p>
@@ -177,7 +177,7 @@
 							<div class="px-[2px] flex h-[24px]">
 								<input
 									name="destInput"
-									class="w-[339px] outline-0"
+									class="w-[100%] outline-0"
 									placeholder="Teacher/location"
 									bind:value={destSort}
 									on:focus={destFocus}
@@ -198,7 +198,7 @@
 											<button
 												class="w-[100%] text-left"
 												on:click|preventDefault={() => {
-													destSort = `${location.name}`;
+													destSort = `${location.name}${location.email ? `, ${location.email}` : ''}`;
 												}}
 											>
 												<p>{location.name}{location.email ? `, ${location.email}` : ''}</p>
