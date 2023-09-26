@@ -25,7 +25,7 @@
                                     <div class="col-md-16 text-center mb-3 px-0 px-md-2">
                                         <div class="flex justify-center">
                                             <!-- Google -->
-                                            <div class="ext-login-container g-signin2" data-width="20">
+                                            <div class="ext-login-container" data-width="20">
                                                 <div class="m-[5px] rounded-full bg-[#E1E1E1]">
                                                     <img class="p-[10px]" width=42 src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google">
 

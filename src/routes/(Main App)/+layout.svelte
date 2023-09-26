@@ -20,7 +20,7 @@
         <div class="h-screen flex flex-col">
             <Navbar />
 
-            <div class="h-[100%]">
+            <div class="h-[100%] overflow-y-hidden">
                 <slot />
             </div>
         </div>
