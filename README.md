@@ -34,38 +34,3 @@ Start pocketbase server
 1. Go to [PocketBase admin site](http://127.0.0.1:8090)
 2. Add new collection called api with a input field called name and email field
 3. Add required api rules
-
-## Features (Some may not be implimented yet, check to-do list)
-* Persistent account data
-    -
-    - Uses cookies to store account data
-    - Stores name, email, and school
-* Account verification
-* Creating passes
-* Persistent passes
-* Removing passes with fake staff credentials
-* Fake pass history
-* Modifiable pass history
-* Working sidebar
-* Working navbar
-* Most functionality from the offical [e-hallpass](https://e-hallpass.com/)
-
-## Routes
-* login
-* id-card
-* passes
-    - activepass
-    - create
-* appointments
-* updates
-* training
-* user-settings
-
-
-## TO-DO
-* Sidebar
-    - Training drop down
-* Navbar
-    - Help menu button
-
-* too much
