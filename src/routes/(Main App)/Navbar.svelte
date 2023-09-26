@@ -3,32 +3,31 @@
 	import notificationImg from '$lib/Navbar Images/Notification.png';
 	import helpImg from '$lib/Navbar Images/Help.png';
 
-	let header: string = 'Unknown area';
+	import { page } from '$app/stores';
 
-	import { onMount } from 'svelte';
-	onMount(() => {
-		const url = window.location.href;
+	var testers: any = {
+		'id-card': 'Digital ID',
+		'passes/create': 'Create Pass',
+		'passes/activepass': 'Active Pass',
+		appointments: 'Appointments',
+		updates: 'Updates',
+		'training/documents': 'Documents',
+		'training/videos': 'Training Videos',
+		'user-settings': 'User Settings'
+	};
+
+	function urlFormatter(url: string) {
 		const route = url.replace(/(?:http:\/\/(?:.)+)?(?:[0-9]\.?)+\//, '');
-
-		var testers: any = {
-            'id-card': 'Digital ID',
-			'passes\/create': 'Create Pass',
-            'passes\/activepass': 'Active Pass',
-            'appointments': 'Appointments',
-            'updates': 'Updates',
-            'training\/documents': 'Documents',
-            'training\/videos': 'Training Videos',
-            'user-settings': 'User Settings',
-		};
 
 		for (const test in testers) {
 			if (testers.hasOwnProperty(test)) {
-                const regex = new RegExp(test, 'g' )
-                if(regex.exec(route) !== null) {header = testers[test]; }
+				const regex = new RegExp(test, 'g');
+				if (regex.exec(route) !== null) return testers[test];
 			}
 		}
 
-	});
+		return 'Unknown page';
+	}
 </script>
 
 <div class="bg-white z-0">
@@ -36,9 +35,7 @@
 		<ul class="py-2 px-2 px-lg-0 py-md-0 min-h-[63px] flex items-center border-b border-[#d8dbe0]">
 			<div class="me-auto">
 				<div class="ml-[24px] text-[18px]">
-					{#if header}
-						{header}
-					{/if}
+					{urlFormatter($page.url.toString())}
 				</div>
 			</div>
 			<!--Buttons-->

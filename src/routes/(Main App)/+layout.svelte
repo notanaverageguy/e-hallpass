@@ -1,28 +1,24 @@
 <script lang="ts">
-    import Sidebar from "./Sidebar.svelte";
-    import Navbar from "./Navbar.svelte";
+	import Sidebar from './Sidebar.svelte';
+	import Navbar from './Navbar.svelte';
 
-    export let data: any;
+	export let data: any;
 
-    let studentName = (data.studentName);
-    let schoolName = data.schoolName;
-
+	let studentName = data.studentName;
+	let schoolName = data.schoolName;
 </script>
 
-<title>
-    securlypass
-</title>
+<title> securlypass </title>
 
 <main>
-    <div class="min-w-screen max-w-screen">
+	<div class="min-w-screen max-w-screen">
+		<Sidebar {studentName} {schoolName} />
+		<div class="h-screen flex flex-col">
+			<Navbar />
 
-            <Sidebar studentName={ studentName } schoolName={ schoolName }/>
-        <div class="h-screen flex flex-col">
-            <Navbar />
-
-            <div class="h-[100%] overflow-y-hidden">
-                <slot />
-            </div>
-        </div>
-    </div>
+			<div class="h-[100%] overflow-y-hidden">
+				<slot />
+			</div>
+		</div>
+	</div>
 </main>
