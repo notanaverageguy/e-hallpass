@@ -31,6 +31,7 @@
     }
 
     function departingFocus(): void {
+	departingSort = "";
         document.getElementById('departingDropDown')?.classList.toggle('hidden');
     }
     function departingUnfocus(): void {
@@ -38,6 +39,7 @@
             document.getElementById('departingDropDown')?.classList.toggle('hidden');
 
             if(validateDestination(departingSort)) {
+		document.getElementById("departInput").placeholder = departingSort;
                 departingInput = departingSort;
             } else {
                 departingSort = departingInput;
@@ -47,10 +49,12 @@
     }
 
     function destFocus(): void {
+	departSort = "";
         document.getElementById('destDropDown')?.classList.toggle('hidden');
     }
     function destUnfocus(): void {
         setTimeout(() => {
+	    document.getElementById("departInput").placeholder = departSort;
             document.getElementById('destDropDown')?.classList.toggle('hidden');
 
             if(validateDestination(destSort)) {
@@ -89,7 +93,7 @@
     
                         <div class="p-[11.2px] border border-[#003b75]">
                             <div class="px-[2px] flex h-[24px]">
-                                <input name="depart" class="w-[339px] outline-0" placeholder="Teacher/location" bind:value= { departingSort } on:focus={ departingFocus } on:focusout = { departingUnfocus } >
+                                <input name="depart" id="departInput" class="w-[339px] outline-0" placeholder="Teacher/location" bind:value= { departingSort } on:focus={ departingFocus } on:focusout = { departingUnfocus } >
                             </div>
                             <div id="departingDropDown" class="hidden absolute mt-3 right-0 left-0 mx-[15px] bg-white max-h-[148px] bg-white z-10 overflow-y-auto border-b border-r border-black">
                                 {#each locations as location}
@@ -134,7 +138,7 @@
     
                         <div class="p-[11.2px] border border-[#003b75]">
                             <div class="px-[2px] flex h-[24px]">
-                                <input class="w-[339px] outline-0" name="dest" placeholder="Teacher/location" bind:value= { destSort } on:focus={ destFocus } on:focusout = { destUnfocus } >
+                                <input class="w-[339px] id="destInput" outline-0" name="dest" placeholder="Teacher/location" bind:value= { destSort } on:focus={ destFocus } on:focusout = { destUnfocus } >
                             </div>
                             <div id="destDropDown" class="hidden absolute mt-3 right-0 left-0 mx-[15px] bg-white max-h-[148px] bg-white z-10 overflow-y-auto border-b border-r border-black">
                                 {#each locations as location}
