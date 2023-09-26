@@ -34,3 +34,6 @@ Start pocketbase server
 1. Go to [PocketBase admin site](http://127.0.0.1:8090)
 2. Add new collection called api with a input field called name and email field
 3. Add required api rules
+
+## Pages still to fix
+* Everything besides login page
