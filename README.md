@@ -4,23 +4,36 @@
 A clone of [e-hallpass](https://e-hallpass.com/) to allow you to be outside the class forever. Creates a persistent fake account for each user.
 
 ## Usage
-To install then run, do: 
+
+1\. Install dependencies
 ```bash
-# Installing dependencies
 npm install
-
-# Running server
-npm run dev
-
-# To open the network 
-npm run dev -- --host
 ```
+2\. Setup [PocketBase server](#Setting-up-PocketBase)
 
-## Changing ports
+3A.
+    If running a dev server
 
-### `--p <port>`
+        # No custom port
+        npm run dev
 
-Speicifies the port you want to use. Use port 80 to not have to specify the port when connecting via the web. Make sure that it doesnt interfere with other running applications that are using the same port
+        # Custom port
+        npm run dev -- --port <port>
+3B.
+    If running on a production server, use the [build handler](build/handler.js).<br>
+    
+        // On a Javascript server, you can use
+        import { handler } from './build/handler.js';
+
+## Setting up PocketBase
+
+Start pocketbase server
+```bash
+./pocketbase serve
+```
+1. Go to [PocketBase admin site](http://127.0.0.1:8090)
+2. Add new collection called api with a input field called name and email field
+3. Add required api rules
 
 ## Features (Some may not be implimented yet, check to-do list)
 * Persistent account data
@@ -38,21 +51,16 @@ Speicifies the port you want to use. Use port 80 to not have to specify the port
 * Most functionality from the offical [e-hallpass](https://e-hallpass.com/)
 
 ## Routes
+* login
+* id-card
 * passes
     - activepass
     - create
-* id-card
 * appointments
 * updates
+* training
 * user-settings
-* login
 
-## Node Packages
-npm modules used: 
-* Sveltekit
-* Tailwindcss
-* Autoprefixer
-* Postcss
 
 ## TO-DO
 * Sidebar
@@ -60,3 +68,4 @@ npm modules used:
 * Navbar
     - Help menu button
 
+* too much
