@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .edit-button-inner {
+        @apply flex justify-end relative z-0
+    }
+
+
+    .favorite-teacher-container {
+        @apply flex py-[10px] overflow-x-auto overflow-y-clip snap-x
+    }
+    .favorite-teacher-text {
+        @apply p-[20px] text-[8px] font-bold text-center uppercase text-[#003b75]
+    }
+    .favorite-teacher-wrapper {
+        @apply h-[100px] w-[28vw] rounded-xl flex flex-col justify-center border border-[#003b75]
+    }
+    .favorite-teacher-image-wrapper {
+        @apply mt-[4px] mb-[2px] flex justify-center items-center pt-[4px] pb-[2px] mt-[30px]
+    }
+}
+
+
+
+*::-webkit-scrollbar {
+    width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #FFFFFF;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #8a8a8a;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+}
