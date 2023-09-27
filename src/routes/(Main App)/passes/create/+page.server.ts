@@ -17,7 +17,7 @@ export const actions = {
 
 		cookies.set('depart', `${depart}`, { path: '/', secure: false });
 		cookies.set('dest', `${dest}`, { path: '/', secure: false });
-		cookies.set('time', `${Date.now()}`, { path: '/', secure: false });
+		cookies.set('time', `${Date.now().toString()}`, { path: '/', secure: false });
 
 		throw redirect(303, '/passes/activepass');
 	}

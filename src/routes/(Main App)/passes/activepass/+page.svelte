@@ -5,7 +5,9 @@
 
     let depart = data.depart;
     let dest = data.dest;
-    let time = data.time;
+
+    let timems: string = data.time ? data.time : "0";
+    let time: Date = new Date(Date(timems));
     
 </script>
 
@@ -26,7 +28,9 @@
                         <div class="flex flex-col">
                             <span class="text-white pb-2 px-[10px] font-bold"> From:</span>
                             <div class="text-white border-[2px] mx-[5px] px-[10px] pt-[5px] pb-[3px] rounded-full font-bold border-white text-[15px] text-center leading-4">{ depart }</div>
-                            <div class="text-white p-2 text-center font-medium">01:47 PM</div> 
+                            <div class="text-white p-2 text-center font-medium">
+                                {(time.getHours() % 12).toString().padStart(2, '0')}:{(time.getMinutes() % 60).toString().padStart(2, '0')} {time.getHours() % 12 < 12 ? "AM" : "PM"}
+                            </div> 
                         </div>
                     </div>
         
