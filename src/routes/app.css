@@ -10,3 +10,10 @@
 		@apply py-[10px] px-[16px] text-[15px] font-normal flex bg-gray-200 w-[100%] rounded-lg;
 	}
 }
+
+@font-face {
+    font-family: 'Metropolis-Bold';
+    font-style: bold;
+    font-weight: 700;
+    src: url('../static/fonts/Metropolis-Bold.otf');
+}
