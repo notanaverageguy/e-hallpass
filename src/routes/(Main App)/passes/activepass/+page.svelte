@@ -14,7 +14,7 @@
         <div class="rounded-lg pt-[8px]">
 
             <div class="m-[16px]">
-                <div class="px-[30px] py-[40px] bg-white rounded-2xl flex align-center justify-center w-[100%] shadow text-red-500 text-[50px]" style="font-family: Metropolis-Bold">
+                <div class="px-[30px] py-[40px] bg-white rounded-2xl flex align-center justify-center w-[100%] shadow text-red-500 text-[50px] font-bold" style="font-family: Metropolis">
                     00:03:17 
                 </div>
             </div>
