@@ -96,6 +96,7 @@
 									name="departInput"
 									class="w-[100%] outline-0"
 									placeholder="Teacher/location"
+									autocomplete="off"
 									bind:value={departingSort}
 									on:focus={departingFocus}
 									on:focusout={departingUnfocus}
@@ -179,6 +180,7 @@
 									name="destInput"
 									class="w-[100%] outline-0"
 									placeholder="Teacher/location"
+									autocomplete="off"
 									bind:value={destSort}
 									on:focus={destFocus}
 									on:focusout={destUnfocus}
