@@ -12,6 +12,16 @@
 }
 
 @font-face {
+    font-family: 'Metropolis Regular';
+    src: url('../static/fonts/Metropolis-Regular.otf');
+}
+@font-face {
+    font-family: 'Metropolis Regular';
+    font-style: italic;
+    src: url('../static/fonts/Metropolis-RegularItalic.otf');
+}
+
+@font-face {
     font-family: 'Metropolis';
     font-weight: 100;
     src: url('../static/fonts/Metropolis-Thin.otf');
