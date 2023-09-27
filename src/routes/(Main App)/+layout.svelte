@@ -11,7 +11,7 @@
 <title> securlypass </title>
 
 <main>
-	<div class="min-w-screen max-w-screen" style="font-family: Metropolis Regular, Metropolis" >
+	<div class="min-w-screen max-w-screen overflow-x-clip" style="font-family: Metropolis Regular, Metropolis" >
 		<Sidebar {studentName} {schoolName} />
 		<div class="h-screen flex flex-col">
 			<Navbar />

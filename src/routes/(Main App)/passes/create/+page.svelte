@@ -7,13 +7,41 @@
 
 	let locations: any[] = [];
 
-	let departingSort = '';
-	let departingInput = '';
-	let favoriteDepart = [1, 2, 3, 4, 5, 6, 7, 8];
+	type input = {
+		currentValue: string,
+		input: string,
+		dest: destination,
+		favorites: any[]
+	}
 
-	let destSort = '';
-	let destInput = '';
-	let favoriteDest = [1, 2, 3, 4, 5, 6, 7, 8];
+	type destination = {
+		name: string|null,
+		email: string|null
+	}
+
+	let departing: input = {
+		currentValue: '',
+		input: '',
+		dest: {
+			name: '', 
+			email: ''
+		},
+		favorites: [
+			1,2,3,4,5
+		],
+	}
+
+	let dest: input = {
+		currentValue: '',
+		input: '',
+		dest: {
+			name: '', 
+			email: ''
+		},
+		favorites: [
+			1,2,3,4,5
+		],
+	}
 
 	onMount(async () => {
 		const resultList = await db.collection('locations').getList(1, 450, {
@@ -22,17 +50,20 @@
 		locations = resultList.items;
 	});
 
-	function validateDestination(dest: string): boolean {
+	function validateDestination(name: string): destination {
 		for (const location of locations) {
-			if (`${location.name}${location.email ? `, ${location.email}` : ''}` == dest) return true;
+			if (location.name == name) return {
+				name: location.name,
+				email: location.email
+			};
 		}
-		return false;
+		return {name: null, email: null};
 	}
 
 	function departingFocus(): void {
-		if (departingSort) {
-			(<HTMLInputElement>document.getElementsByName('departInput')[0]).placeholder = departingSort;
-			departingSort = '';
+		if (departing.currentValue) {
+			(<HTMLInputElement>document.getElementsByName('departInput')[0]).placeholder = departing.currentValue;
+			departing.currentValue = '';
 		}
 		document.getElementById('departingDropDown')?.classList.toggle('hidden');
 	}
@@ -40,18 +71,22 @@
 		setTimeout(() => {
 			document.getElementById('departingDropDown')?.classList.toggle('hidden');
 
-			if (validateDestination(departingSort)) {
-				departingInput = departingSort;
+			const destination = validateDestination(departing.currentValue)
+			if (destination.name != null) {
+				departing.input = departing.currentValue;
+				departing.dest.name = destination.name;
+				departing.dest.email = destination.email;
 			} else {
-				departingSort = departingInput;
+				departing.currentValue = departing.input;
+				console.log('invaluid')
 			}
 		}, 1);
 	}
 
 	function destFocus(): void {
-		if (destSort) {
-			(<HTMLInputElement>document.getElementsByName('destInput')[0]).placeholder = destSort;
-			destSort = '';
+		if (dest.currentValue) {
+			(<HTMLInputElement>document.getElementsByName('destInput')[0]).placeholder = dest.currentValue;
+			dest.currentValue = '';
 		}
 		document.getElementById('destDropDown')?.classList.toggle('hidden');
 	}
@@ -59,10 +94,14 @@
 		setTimeout(() => {
 			document.getElementById('destDropDown')?.classList.toggle('hidden');
 
-			if (validateDestination(destSort)) {
-				destInput = destSort;
+			const destination = validateDestination(dest.currentValue)
+			if (destination.name != null) {
+				dest.input = dest.currentValue;
+				dest.dest.name = destination.name;
+				dest.dest.email = destination.email;
 			} else {
-				destSort = destInput;
+				dest.currentValue = dest.input;
+				console.log('invaluid')
 			}
 		}, 1);
 	}
@@ -97,7 +136,7 @@
 									class="w-[100%] outline-0"
 									placeholder="Teacher/location"
 									autocomplete="off"
-									bind:value={departingSort}
+									bind:value={departing.currentValue}
 									on:focus={departingFocus}
 									on:focusout={departingUnfocus}
 								/>
@@ -107,19 +146,19 @@
 								class="hidden absolute mt-3 right-0 left-0 mx-[15px] bg-white max-h-[148px] bg-white z-10 overflow-y-auto border-b border-r border-black"
 							>
 								{#each locations as location}
-									{#if location.name.toLowerCase().includes(departingSort.toLowerCase())}
+									{#if location.name.toLowerCase().includes(departing.currentValue.toLowerCase())}
 										<div
-											class="truncate py-2 px-4 text-sm {location.name == departingInput
+											class="truncate py-2 px-4 text-sm {location.name == departing.dest.name
 												? 'bg-gradient-to-r from-[#298FCE] to-[#304BAF] text-white'
 												: ''}"
 										>
 											<button
 												class="w-[100%] text-left"
 												on:click|preventDefault={() => {
-													departingSort = `${location.name}${location.email ? `, ${location.email}` : ''}`;
+													departing.currentValue = location.name;
 												}}
 											>
-												<p>{location.name}{location.email ? `, ${location.email}` : ''}</p>
+												<p>{location.name} {location.email}</p>
 											</button>
 										</div>
 									{/if}
@@ -154,7 +193,7 @@
 
 						<div class="favorite-teacher-container">
 							<!--Favorite teacher/room thing-->
-							{#each favoriteDepart as location}
+							{#each departing.favorites as location}
 								<div class="h-[100px] snap-center">
 									<div class="flex pl-[5px]">
 										<div class="px-[5px] w-1/3">
@@ -181,7 +220,7 @@
 									class="w-[100%] outline-0"
 									placeholder="Teacher/location"
 									autocomplete="off"
-									bind:value={destSort}
+									bind:value={dest.currentValue}
 									on:focus={destFocus}
 									on:focusout={destUnfocus}
 								/>
@@ -191,19 +230,19 @@
 								class="hidden absolute mt-3 right-0 left-0 mx-[15px] bg-white max-h-[148px] bg-white z-10 overflow-y-auto border-b border-r border-black"
 							>
 								{#each locations as location}
-									{#if location.name.toLowerCase().includes(destSort.toLowerCase())}
+									{#if location.name.toLowerCase().includes(dest.currentValue.toLowerCase())}
 										<div
-											class="truncate py-2 px-4 text-sm {location.name == destInput
+											class="truncate py-2 px-4 text-sm {location.name == dest.dest.name
 												? 'bg-gradient-to-r from-[#298FCE] to-[#304BAF] text-white'
 												: ''}"
 										>
 											<button
 												class="w-[100%] text-left"
 												on:click|preventDefault={() => {
-													destSort = `${location.name}${location.email ? `, ${location.email}` : ''}`;
+													dest.currentValue = location.name;
 												}}
 											>
-												<p>{location.name}{location.email ? `, ${location.email}` : ''}</p>
+												<p>{location.name} {location.email}</p>
 											</button>
 										</div>
 									{/if}
@@ -238,7 +277,7 @@
 
 						<div class="favorite-teacher-container">
 							<!--Favorite teacher/room thing-->
-							{#each favoriteDest as location}
+							{#each dest.favorites as location}
 								<div class="h-[100px] snap-center">
 									<div class="flex pl-[5px]">
 										<div class="px-[5px] w-1/3">
