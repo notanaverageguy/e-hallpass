@@ -78,7 +78,6 @@
 				departing.dest.email = destination.email;
 			} else {
 				departing.currentValue = departing.input;
-				console.log('invaluid')
 			}
 		}, 1);
 	}
@@ -101,7 +100,6 @@
 				dest.dest.email = destination.email;
 			} else {
 				dest.currentValue = dest.input;
-				console.log('invaluid')
 			}
 		}, 1);
 	}
