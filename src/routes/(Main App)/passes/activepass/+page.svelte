@@ -7,7 +7,7 @@
     let dest = data.dest;
 
     let timems: string = data.time ? data.time : "0";
-    let time: Date = new Date(Date(timems));
+    let time: Date = new Date(new Date().setMilliseconds(parseInt(timems)));
     
 </script>
 
